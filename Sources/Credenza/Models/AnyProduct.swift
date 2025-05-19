@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct AnyProduct: Identifiable, Codable, Sendable {
+public struct AnyProduct: Identifiable, Codable, Sendable, Equatable {
     
     public let id: String
     public let title: String
@@ -73,6 +73,10 @@ public struct AnyProduct: Identifiable, Codable, Sendable {
 
     public static var mocks: [AnyProduct] {
         [mockYearly, mockMonthly]
+    }
+    
+    public static func == (lhs: AnyProduct, rhs: AnyProduct) -> Bool {
+        lhs.id == rhs.id
     }
 }
 
